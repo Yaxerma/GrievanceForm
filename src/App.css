@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background: url('./shru.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
 }
 
 .App-logo {
@@ -14,14 +18,26 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: rgba(255, 192, 203, 0.75);
+  /* soft pink overlay */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #fff;
+  font-family: 'Pacifico', cursive, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px #e75480, 0 0 10px #fff;
 }
 
 .App-link {
@@ -32,7 +48,268 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+.grievance-form {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  padding: 36px 28px;
+  box-shadow: 0 8px 32px rgba(231, 84, 128, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 370px;
+  margin: 0 auto;
+  border: 2px solid #e75480;
+  position: relative;
+  z-index: 2;
+}
+
+.grievance-form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.15rem;
+  color: #e75480;
+  gap: 8px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.grievance-form select,
+.grievance-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #e75480;
+  margin-top: 4px;
+  font-size: 1rem;
+  resize: vertical;
+  background: #fff0f6;
+  color: #e75480;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.grievance-form textarea {
+  min-height: 70px;
+  max-height: 140px;
+}
+
+.severity-options {
+  display: flex;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+.severity-options label {
+  color: #e75480;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.severity-options input[type="radio"] {
+  accent-color: #e75480;
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, #ffb6c1 0%, #e75480 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px #e7548033;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #e75480 0%, #ffb6c1 100%);
+  transform: scale(1.04);
+}
+
+.response-message {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: 44px 36px;
+  box-shadow: 0 8px 32px rgba(231, 84, 128, 0.18);
+  color: #e75480;
+  font-size: 1.6rem;
+  margin-top: 36px;
+  font-family: 'Pacifico', cursive, sans-serif;
+  border: 2px solid #e75480;
+  z-index: 2;
+}
+
+/* Add some cute decorations */
+.grievance-form::before {
+  content: '♡';
+  position: absolute;
+  top: -18px;
+  left: 20px;
+  font-size: 2.2rem;
+  color: #e75480;
+  opacity: 0.7;
+  animation: floatHeart 2.5s infinite alternate;
+}
+
+.grievance-form::after {
+  content: '✨';
+  position: absolute;
+  bottom: -18px;
+  right: 20px;
+  font-size: 2rem;
+  color: #ffb6c1;
+  opacity: 0.7;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.feelings-label {
+  align-items: center !important;
+  width: 100%;
+  margin: 0 auto 0.5rem auto;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: 'Pacifico', cursive, sans-serif;
+  color: #e75480 !important;
+  letter-spacing: 1px;
+  justify-content: center;
+}
+
+.feelings-label span {
+  width: 100%;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  color: #e75480;
+  font-family: 'Pacifico', cursive, sans-serif;
+}
+
+.grievance-form select {
+  background: #ffe4ec;
+  color: #e75480;
+  font-size: 1.1rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.grievance-form option {
+  color: #e75480;
+  background: #fff0f6;
+}
+
+.grievance-form label[for="mood"] {
+  font-size: 1.15rem;
+}
+
+.grievance-form select option[value="Sad"]::before {
+  content: "😢 ";
+}
+
+.grievance-form select option[value="Angry"]::before {
+  content: "😡 ";
+}
+
+.grievance-form select option[value="Upset"]::before {
+  content: "🥺 ";
+}
+
+.grievance-form select option[value="Disappointed"]::before {
+  content: "😞 ";
+}
+
+.grievance-form select option[value="Ignored"]::before {
+  content: "🙁 ";
+}
+
+.grievance-form select option[value="Other"]::before {
+  content: "🌸 ";
+}
+
+.severity-options label {
+  font-size: 1.1rem;
+  font-family: 'Quicksand', sans-serif;
+  color: #e75480;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 600px) {
+  .App-header {
+    font-size: 1.1rem;
+    padding: 0 2vw;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  .grievance-form {
+    width: 95vw;
+    min-width: unset;
+    max-width: 99vw;
+    padding: 18px 6vw;
+    border-radius: 16px;
+    gap: 14px;
+  }
+
+  .response-message {
+    padding: 24px 8vw;
+    font-size: 1.1rem;
+    margin-top: 18px;
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+  }
+
+  .feelings-label span {
+    font-size: 1.05rem;
+  }
+
+  .grievance-form label,
+  .severity-options label {
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+
+  .grievance-form::before,
+  .grievance-form::after {
+    font-size: 1.2rem;
+    top: -10px;
+    bottom: -10px;
+    left: 10px;
+    right: 10px;
   }
 }
